@@ -20,21 +20,28 @@ const App = () => {
     searchMovies('Batman');
   }, []);
 
+  const handleSearch = () => {
+    searchMovies(searchTerm);
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      searchMovies(searchTerm);
+    }
+  };
+
   return (
     <div className="app">
-      <h1>Movie Serch</h1>
+      <h1>Movie Search</h1>
 
       <div className="search">
         <input
           placeholder="Search for movies"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyPress={handleKeyPress}
         />
-        <img
-          src={SearchIcon}
-          alt="search"
-          onClick={() => searchMovies(searchTerm)}
-        />
+        <img src={SearchIcon} alt="search" onClick={handleSearch} />
       </div>
 
       {movies?.length > 0 ? (
