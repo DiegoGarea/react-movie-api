@@ -17,7 +17,7 @@ const App = () => {
     setMovies(data.Search);
   };
   useEffect(() => {
-    searchMovies('Batman');
+    searchMovies('Better Call Saul');
   }, []);
 
   const handleSearch = () => {
